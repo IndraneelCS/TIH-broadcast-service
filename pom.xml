@@ -1068,7 +1068,7 @@
                                     <goal>npm</goal>
                                 </goals>
                             </execution>
-                            <execution>
+                            <!--<execution>
                                 <id>webapp build test</id>
                                 <goals>
                                     <goal>npm</goal>
@@ -1078,7 +1078,7 @@
                                     <arguments>run webapp:test</arguments>
                                     <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
-                            </execution>
+                            </execution>-->
                             <execution>
                                 <id>webapp build prod</id>
                                 <goals>
