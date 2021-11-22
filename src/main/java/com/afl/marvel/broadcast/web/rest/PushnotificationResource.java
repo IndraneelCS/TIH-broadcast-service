@@ -45,7 +45,7 @@ public class PushnotificationResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new pushnotification, or with status {@code 400 (Bad Request)} if the pushnotification has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PostMapping("/pushnotifications")
     public ResponseEntity<Pushnotification> createPushnotification(@RequestBody Pushnotification pushnotification)
         throws URISyntaxException {

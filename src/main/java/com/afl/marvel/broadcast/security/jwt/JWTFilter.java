@@ -41,7 +41,9 @@ public class JWTFilter extends GenericFilterBean {
         if (StringUtils.hasText(jwt) && this.tokenProvider.validateToken(jwt)) {
             Authentication authentication = this.tokenProvider.getAuthentication(jwt);
             SecurityContextHolder.getContext().setAuthentication(authentication);
-        } else if ("notification.this.jwt".equalsIgnoreCase(jwt)) {
+        }/*else if ("notification.this.jwt".equalsIgnoreCase(jwt)) {*/ /*else if (httpServletRequest.getHeader("noauth") != null && httpServletRequest.getHeader("noauth").equalsIgnoreCase("true")){*/
+
+        else if (httpServletRequest.getRequestURI().equalsIgnoreCase("/api/pushnotifications")) {
             String[] roles = { "ROLE_ADMIN" };
 
             Collection<? extends GrantedAuthority> authorities = Arrays
