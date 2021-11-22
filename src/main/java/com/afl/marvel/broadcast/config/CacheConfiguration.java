@@ -48,6 +48,8 @@ public class CacheConfiguration {
             createCache(cm, com.afl.marvel.broadcast.domain.User.class.getName());
             createCache(cm, com.afl.marvel.broadcast.domain.Authority.class.getName());
             createCache(cm, com.afl.marvel.broadcast.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.afl.marvel.broadcast.domain.Notification.class.getName());
+            createCache(cm, com.afl.marvel.broadcast.domain.Pushnotification.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

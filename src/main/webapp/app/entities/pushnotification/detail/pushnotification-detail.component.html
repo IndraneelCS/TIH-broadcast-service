@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pushnotification">
+      <h2 data-cy="pushnotificationDetailsHeading"><span>Pushnotification</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ pushnotification.id }}</span>
+        </dd>
+        <dt><span>Fan Level</span></dt>
+        <dd>
+          <span>{{ pushnotification.fanLevel }}</span>
+        </dd>
+        <dt><span>Priority</span></dt>
+        <dd>
+          <span>{{ pushnotification.priority }}</span>
+        </dd>
+        <dt><span>Message Header</span></dt>
+        <dd>
+          <span>{{ pushnotification.messageHeader }}</span>
+        </dd>
+        <dt><span>Message</span></dt>
+        <dd>
+          <span>{{ pushnotification.message }}</span>
+        </dd>
+        <dt><span>Timestamp</span></dt>
+        <dd>
+          <span>{{ pushnotification.timestamp | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pushnotification', pushnotification.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

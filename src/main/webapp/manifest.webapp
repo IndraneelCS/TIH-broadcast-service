@@ -1,6 +1,6 @@
 {
-  "name": "Broadcast",
-  "short_name": "Broadcast",
+  "name": "Broadcast Service",
+  "short_name": "Broadcast Service",
   "icons": [
     {
       "src": "./content/images/jhipster_family_member_3_head-192.png",

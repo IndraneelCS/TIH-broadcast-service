@@ -1,8 +1,8 @@
 <nav data-cy="navbar" class="navbar navbar-light navbar-expand-md bg-light">
   <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
     <span class="logo-img"></span>
-    <span class="navbar-title">Broadcast</span>
-    <span class="navbar-version">{{ version }}</span>
+    <span class="navbar-title">Broadcast Service</span>
+    <span class="navbar-version">v0.1</span>
   </a>
   <a
     class="navbar-toggler d-lg-none"
@@ -28,7 +28,7 @@
       </li>
       <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
       <li
-        *ngSwitchCase="true"
+        *jhiHasAnyAuthority="'ROLE_ADMIN'"
         ngbDropdown
         class="nav-item dropdown pointer"
         display="dynamic"
@@ -42,8 +42,47 @@
           </span>
         </a>
         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+          <li>
+            <a
+              class="dropdown-item"
+              routerLink="notification"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="collapseNavbar()"
+            >
+              <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+              <span>Notification</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              routerLink="pushnotification"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="collapseNavbar()"
+            >
+              <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+              <span>Pushnotification</span>
+            </a>
+          </li>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
         </ul>
+      </li>
+      <li
+        *jhiHasAnyAuthority="'ROLE_USER'"
+        ngbDropdown
+        class="nav-item"
+        display="dynamic"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" routerLink="/video-feed" (click)="collapseNavbar()">
+          <span>
+            <fa-icon icon="video"></fa-icon>
+            <span>Video Feed</span>
+          </span>
+        </a>
       </li>
       <li
         *jhiHasAnyAuthority="'ROLE_ADMIN'"
