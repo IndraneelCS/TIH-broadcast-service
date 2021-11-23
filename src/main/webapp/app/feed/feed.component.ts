@@ -4,6 +4,8 @@ import { IPushnotification, Pushnotification } from '../entities/pushnotificatio
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { HttpResponse } from '@angular/common/http';
+import * as dayjs from 'dayjs';
+import { DATE_TIME_FORMAT } from '../config/input.constants';
 
 @Component({
   selector: 'jhi-feed',
@@ -14,10 +16,15 @@ export class FeedComponent implements OnInit {
   feed = true;
   isSaving = false;
 
-  pushnotification1 = this.createFromForm('Amateur', 'Goal', 'LAST MINUTE GOAL!!!!', 'Renegades have won it at the very last minute');
-  pushnotification2 = this.createFromForm('Casual', 'All', 'LAST MINUTE GOAL!!!!', 'Renegades have won it at the very last minute');
-  pushnotification3 = this.createFromForm('Professional', 'High', 'LAST MINUTE GOAL!!!!', 'Renegades have won it at the very last minute');
-  pushnotification4 = this.createFromForm('Amateur', 'Goal', 'LAST MINUTE GOAL!!!!', 'Renegades have won it at the very last minute');
+  pushnotification1 = this.createFromForm('Amateur', 'Goal', 'LAST MINUTE GOAL!', 'Renegades have won it at the very last minute');
+  pushnotification2 = this.createFromForm('Casual', 'All', 'Robbed off a Goal', 'Defender checks the run to prevent a goal');
+  pushnotification3 = this.createFromForm('Professional', 'All', 'Fastest run in the AFL', 'Nick hand runs at a speed of 36km/hr!!');
+  pushnotification4 = this.createFromForm(
+    'Professional',
+    'All',
+    'Leader in Contested Marks',
+    'Aaron Naughton leads the league in Contested Marks'
+  );
 
   constructor(protected pushnotificationService: PushnotificationService) {
     this.feed = true;
@@ -69,7 +76,7 @@ export class FeedComponent implements OnInit {
       priority: priority,
       messageHeader: header,
       message: message,
-      timestamp: undefined,
+      timestamp: dayjs(new Date()),
     };
   }
 }
